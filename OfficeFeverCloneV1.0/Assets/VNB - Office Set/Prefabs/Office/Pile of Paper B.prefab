@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7672729602167259591}
   - component: {fileID: 8490042654465434610}
   - component: {fileID: 6434370163068566046}
+  - component: {fileID: 7320175962121718904}
   m_Layer: 0
   m_Name: Pile of Paper B
-  m_TagString: Untagged
+  m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,3 +82,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7320175962121718904
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7953690301633518604}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2666682, y: 0.12626107, z: 0.44471398}
+  m_Center: {x: -0.000000067055225, y: 0.063130535, z: -0.028280154}

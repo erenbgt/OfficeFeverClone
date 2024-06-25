@@ -32,7 +32,9 @@ public class PrinterManager : MonoBehaviour
             if (isWorking == true)
             {
                 GameObject temp = Instantiate(paperPrefab);
-                temp.transform.position = new Vector3(exitPoint.position.x+((float)rowCount/3), (paperCount%stackCount) / 60, exitPoint.position.z);
+                temp.transform.position = new Vector3(exitPoint.position.x+((float)rowCount/3), 
+                    (paperCount%stackCount) / 60, 
+                    exitPoint.position.z);
                 paperList.Add(temp);
                 if (paperList.Count >= 30)
                 {
@@ -43,7 +45,7 @@ public class PrinterManager : MonoBehaviour
             {
                 isWorking = true;
             }
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(1f);
         }
 
     }

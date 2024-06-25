@@ -13,11 +13,13 @@ public class CollectionManager : MonoBehaviour
     private void OnEnable()
     {
         TriggerEventManager.OnPaperCollect += getPaper;
+        TriggerEventManager.OnPaperGive += GivePaper;
     }
 
     private void OnDisable()
     {
         TriggerEventManager.OnPaperCollect -= getPaper;
+        TriggerEventManager.OnPaperGive -= GivePaper;
     }
 
     void getPaper()
@@ -26,8 +28,30 @@ public class CollectionManager : MonoBehaviour
         {
             GameObject temp = Instantiate(paperPrefab, collectionPoint);
             temp.transform.position = new Vector3(collectionPoint.position.x,
-                ((float)paperList.Count/20), 
+                0.5f+ ((float)paperList.Count/60), 
                 collectionPoint.position.z);
+            paperList.Add(temp);
+            if (TriggerEventManager.printManager != null)
+            {
+                TriggerEventManager.printManager.RemoveLast();
+            }
+        }
+    }
+
+    public void GivePaper()
+    {
+        if (paperList.Count > 0)
+        {
+            TriggerEventManager.workerManager.getPaper();
+            RemoveLast();
+        }
+    }
+    public void RemoveLast()
+    {
+        if (paperList.Count > 0)
+        {
+            Destroy(paperList[paperList.Count - 1]);
+            paperList.RemoveAt(paperList.Count - 1);
         }
     }
 }
